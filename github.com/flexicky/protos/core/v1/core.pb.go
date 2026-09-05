@@ -203,7 +203,7 @@ func (x *RegisterRequest) GetPassword() string {
 
 type RegisterResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	LoginData     *LoginResponse         `protobuf:"bytes,1,opt,name=login_data,json=loginData,proto3" json:"login_data,omitempty"`
+	LoginData     *LoginResponse         `protobuf:"bytes,1,opt,name=login_data,json=loginData,proto3,oneof" json:"login_data,omitempty"`
 	Message       *string                `protobuf:"bytes,2,opt,name=message,proto3,oneof" json:"message,omitempty"`
 	Ok            bool                   `protobuf:"varint,3,opt,name=ok,proto3" json:"ok,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -404,12 +404,13 @@ const file_core_core_proto_rawDesc = "" +
 	"\b_message\"C\n" +
 	"\x0fRegisterRequest\x12\x14\n" +
 	"\x05email\x18\x01 \x01(\tR\x05email\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpassword\"\x81\x01\n" +
-	"\x10RegisterResponse\x122\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"\x95\x01\n" +
+	"\x10RegisterResponse\x127\n" +
 	"\n" +
-	"login_data\x18\x01 \x01(\v2\x13.auth.LoginResponseR\tloginData\x12\x1d\n" +
-	"\amessage\x18\x02 \x01(\tH\x00R\amessage\x88\x01\x01\x12\x0e\n" +
-	"\x02ok\x18\x03 \x01(\bR\x02okB\n" +
+	"login_data\x18\x01 \x01(\v2\x13.auth.LoginResponseH\x00R\tloginData\x88\x01\x01\x12\x1d\n" +
+	"\amessage\x18\x02 \x01(\tH\x01R\amessage\x88\x01\x01\x12\x0e\n" +
+	"\x02ok\x18\x03 \x01(\bR\x02okB\r\n" +
+	"\v_login_dataB\n" +
 	"\n" +
 	"\b_message\"@\n" +
 	"\fLoginRequest\x12\x14\n" +

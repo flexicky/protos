@@ -30,7 +30,7 @@ message RegisterRequest {
 }
 
 message RegisterResponse {
-    LoginResponse login_data = 1;
+    optional LoginResponse login_data = 1;
     optional string message = 2;
     bool ok = 3;
 }

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package auth;
 
-option go_package = "core.core.v1;corev1";
+option go_package = "github.com/flexicky/protos/core/v1;corev1";
 
 service Auth {
     rpc Register (RegisterRequest) returns (RegisterResponse);

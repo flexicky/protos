@@ -7,15 +7,32 @@ option go_package = "core.core.v1;corev1";
 service Auth {
     rpc Register (RegisterRequest) returns (RegisterResponse);
     rpc Login (LoginRequest) returns (LoginResponse);
-} 
+    rpc Me (MeRequest) returns (MeResponse);
+}
+
+message MeRequest {
+
+}
+
+message  MeResponse {
+    string user_id = 1;
+    optional string name = 2;
+    optional string email = 3;
+    optional string telegram_username = 4;
+    optional string max_username = 5;
+    optional string message = 6;
+    bool ok = 7;
+}
 
 message RegisterRequest {
-    string email = 2;
-    string password = 3;
+    string email = 1;
+    string password = 2;
 }
 
 message RegisterResponse {
-    int64 id = 1;
+    LoginResponse login_data = 1;
+    optional string message = 2;
+    bool ok = 3;
 }
 
 message LoginRequest {
@@ -24,5 +41,8 @@ message LoginRequest {
 }
 
 message LoginResponse {
-    string token = 1;
+    optional string access_token = 1;
+    int64 expires_in = 2;
+    optional string message = 3;
+    bool ok = 4;
 }
